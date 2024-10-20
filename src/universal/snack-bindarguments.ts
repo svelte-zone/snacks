@@ -1,11 +1,11 @@
-export function snackBindArguments<T>(snippet: T, ...boundArgs: any[]): T {
-    return ((node: HTMLElement, ...args: any[]) => {
-        for(let i = 0; i < boundArgs.length; i++) {
-            if(typeof boundArgs[i] !== 'undefined') {
-                args[i] = () => boundArgs[i]
-            }
-        }
-        // @ts-ignore --- svelte lies to ts/ide
-        snippet(node, ...args);
-    }) as T
+export function snackBindArguments<T>(snippet: T, ...boundArgs: unknown[]): T {
+	return ((node: HTMLElement, ...args: unknown[]) => {
+		for (let i = 0; i < boundArgs.length; i++) {
+			if (typeof boundArgs[i] !== 'undefined') {
+				args[i] = () => boundArgs[i];
+			}
+		}
+		// @ts-expect-error svelte lies to ts, so we do it too
+		snippet(node, ...args);
+	}) as T;
 }

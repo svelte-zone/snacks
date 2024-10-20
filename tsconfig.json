@@ -1,6 +1,9 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
   "compilerOptions": {
+    "types": [
+      "@testing-library/jest-dom"
+    ],
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
@@ -16,10 +19,22 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "paths": {
-      "$snacks": ["./src"],
-      "$snacks/*": ["./src/*"],
+      "$snacks": [
+        "./src"
+      ],
+      "$snacks/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.svelte"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

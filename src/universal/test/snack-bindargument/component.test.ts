@@ -1,30 +1,26 @@
 import { render, screen } from '@testing-library/svelte';
-import userEvent from '@testing-library/user-event';
-import {describe, expect, test} from 'vitest';
+import { describe, expect, test } from 'vitest';
 import Component from './Component.svelte';
 
+describe('snack BindArguments', () => {
+	render(Component);
+	test('unbound', async () => {
+		const div = screen.getByTestId('hello-world');
+		expect(div).toHaveTextContent('Hello world');
+	});
 
-describe('snack BindArguments', () =>
-{
-    render(Component);
-    test('unbound', async () => {
+	test('bound rich', async () => {
+		const div = screen.getByTestId('hello-rich');
+		expect(div).toHaveTextContent('Hello rich');
+	});
 
-        const div = screen.getByTestId('hello-world');
-        expect(div).toHaveTextContent('Hello world');
-    });
+	test('multi arguments unbound', async () => {
+		const div = screen.getByTestId('hello-richHarris');
+		expect(div).toHaveTextContent('Hello Rich Harris');
+	});
 
-    test('bound rich', async () => {
-        const div = screen.getByTestId('hello-rich');
-        expect(div).toHaveTextContent('Hello rich');
-    });
-
-    test('multi arguments unbound', async () => {
-        const div = screen.getByTestId('hello-richHarris');
-        expect(div).toHaveTextContent('Hello Rich Harris');
-    });
-
-    test('multi arguments second bound', async () => {
-        const div = screen.getByTestId('hello-richDotCom');
-        expect(div).toHaveTextContent('Hello Rich DotCom');
-    });
+	test('multi arguments second bound', async () => {
+		const div = screen.getByTestId('hello-richDotCom');
+		expect(div).toHaveTextContent('Hello Rich DotCom');
+	});
 });
