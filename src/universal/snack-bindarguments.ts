@@ -1,5 +1,3 @@
-import {type Snippet } from "svelte";
-
 export function snackBindArguments<T>(snippet: T, ...boundArgs: any[]): T {
     return ((node: HTMLElement, ...args: any[]) => {
         for(let i = 0; i < boundArgs.length; i++) {
