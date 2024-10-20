@@ -6,7 +6,6 @@ import Component from './Component.svelte';
 
 describe('snack BindArguments', () =>
 {
-    const user = userEvent.setup();
     render(Component);
     test('unbound', async () => {
 
